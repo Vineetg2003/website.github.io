@@ -1,0 +1,510 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Poppins:wght@400;500;700&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(195, 100%, 30%);
+  --gradient-color: linear-gradient(90deg,
+      hsl(210, 55%, 20%),
+      hsl(192, 62%, 25%));
+  --title-color: hsl(210, 52%, 20%);
+  --text-color: hsl(210, 24%, 15%);
+  --white-color: #fff;
+  --body-color: hsl(210, 55%, 85%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Poppins", sans-serif;
+  --second-font: "Lora", serif;
+  --biggest-font-size: 2.25rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1024px) {
+  :root {
+    --biggest-font-size: 4rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+  }
+}
+
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.bg-header{
+  box-shadow: 0 1px 16px hsla(210, 55% , 24% ,.12);
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+}
+
+.main {
+  overflow: hidden;
+  /* For animation */
+}
+
+/*=============== HEADER & NAV ===============*/
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  /* border: 2px solid red; */
+  background-color: var(--body-color);
+  z-index: var(--z-fixed);
+}
+
+.nav {
+  /* border: 1px solid blue; */
+  position: relative;
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo {
+  width: 36px;
+  /* border: 2px solid green; */
+}
+
+.nav__toggle,
+.nav__close {
+  display: inline-flex;
+  font-size: 1.25rem;
+  color: var(--title-color);
+  cursor: pointer;
+}
+
+/* Navigation for mobile devices */
+@media screen and (max-width:1310px) {
+  .nav__menu {
+    position: fixed;
+    /* //Tp hide the nav bar  */
+    top: -100%;
+    /* margin-right: 1rem; */
+    left: 0;
+    /* border: 2px solid red; */
+    background-color: var(--body-color);
+    width: 100%;
+    box-shadow: 0 1px 16 hsla(210, 55%, 24%, .1);
+    padding-block: 3.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.5rem;
+    transition: top .5s;
+
+  }
+}
+
+.nav_list {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  row-gap: 2rem;
+}
+
+.nav_link {
+  color: var(--title-color);
+  transition: color .3s;
+}
+
+.nav_link:hover {
+  color: var(--first-color);
+
+}
+
+.nav_button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: .75rem;
+}
+
+.nav_button_link,
+.nav_button_ghost {
+  /* border: 2px solid teal; */
+  display: inline-block;
+  margin: 1rem 1rem;
+  color: var(--title-color);
+}
+
+.nav_button_ghost {
+  background-color: hsla(0, 0%, 100%, .3);
+  padding: .8rem 2.5rem;
+  border: 2px solid var(--title-color);
+  border-radius: .75rem;
+}
+
+.nav__close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+}
+
+/* Show menu */
+.show-menu {
+  top: 0;
+}
+.nav{
+  margin-left: 10rem;
+  font-size: 1.3rem;
+}
+/* Change background header */
+
+
+/*=============== HOME ===============*/
+.home {
+  position: relative;
+}
+
+.home__container {
+  padding-top: 8rem;
+  height: 100vh;
+  /* border: 5px solid rgb(255, 29, 157); */
+}
+
+.home__content {
+  position: relative;
+  z-index: 2;
+
+}
+
+.home__data {
+  display: grid;
+  row-gap: .5rem;
+}
+
+.home__subtitle {
+  font-size: var(--small-font-size);
+  color: var(--first-color);
+  letter-spacing: 3px;
+}
+
+.home__title {
+  font-size: 2rem;
+  font-family: var(--second-font);
+  color: var(--title-color);
+}
+
+.hone__desciption {
+  margin-bottom: 2.5rem;
+}
+
+.home__button {
+  /* border: 2px solid purple; */
+  /* ***************** */
+  display: inline-block;
+  background: var(--gradient-color);
+  color: var(--white-color);
+  padding: .9rem 1rem;
+  width: max-content;
+  border-radius: .75rem;
+  box-shadow: 0 24px 32px hsla(210, 54%, 24%, .3);
+}
+
+.home__bird1,
+.home__bird2 {
+  position: absolute;
+  width: 60px;
+}
+
+.home__bird1 {
+  bottom: -6rem;
+  rotate: -30deg;
+}
+
+.home__bird2 {
+  top: 1rem;
+  right: 1rem;
+  rotate: -10deg;
+}
+
+.home_images {
+  z-index: 1;
+  /* margin-top: 850px; */
+  /* padding-top: 85rem; */
+}
+
+.home_images img {
+  position: absolute;
+  max-width: initial;
+  width: 600px;
+  left: -7rem;
+  /* top: 0rem; */
+  bottom: 0;
+
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width:305px) {
+  .container {
+    margin-inline: 1rem;
+  }
+
+  .home__title {
+    font-size: 1.75rem;
+  }
+
+  .home__bird2 {
+    top: 6rem;
+    right: -.5rem;
+
+  }
+}
+
+@media screen and (max-width:479px) {
+  .nav__toggle {
+    margin-right: 1rem;
+  }
+
+}
+
+/* For taller devices */
+@media screen and (min-width:376px) and (max-height:800px) {
+  .home__container {
+    padding-top: 10rem;
+  }
+
+  .home_images img {
+    width: 700px;
+    /* left: -12rem; */
+  }
+}
+
+/* For medium devices */
+@media screen and (min-width:480px) {
+  .home__content {
+    max-width: 305px;
+  }
+
+  .home__bird2 {
+    right: -2rem;
+  }
+
+  /* .home__bird1{
+    margin-top: 1rem;
+  } */
+  .home_images img {
+    width: initial;
+    left: 0;
+
+  }
+}
+
+/* For large devices */
+@media screen and (min-width:1023px) {
+  .nav {
+    height: calc(var(--header-height)+2rem);
+    column-gap: 4rem;
+  }
+
+.nav{
+  font-size: 2rem;
+  height: var(--header-height);
+}
+.nav__menu {
+  width: 100%;
+  font-size: .9rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav_list {
+    flex-direction: row;
+    column-gap: 5rem;
+  }
+
+  .nav_button {
+    flex-direction: row;
+    column-gap: 3rem;
+  }
+
+  .nav__logo {
+    width: 48px;
+    
+  }
+
+  .home__content {
+    max-width: 550px;
+    /* margin-bottom: 200rem; */
+  }
+
+  .home__data {
+    row-gap: 1rem;
+  }
+
+  .home__subtitle {
+    font-size: 1rem;
+  }
+.home__title{
+  font-size: 2.1rem;
+}
+.home__container{
+  /* margin-bottom: 800rem;
+   */
+   margin-top: .1rem;
+}
+  .hone__desciption {
+    font-size: .9rem;
+    margin-bottom: 1rem;
+  }
+  .home_images{
+    /* margin-bottom: 855px; */
+    /* margin-top: 788%; */
+  }
+}
+
+
+@media screen and (min-width:1120px) {
+  .container {
+    margin-inline: auto;
+  }
+}
+
+@media screen and (min-width:1300px) {
+  .home__container {
+    height: 810px;
+    padding-top: 8rem;
+    margin-top:3rem;
+    /* margin-bottom: 50rem; */
+    /* border: 2px solid red; */
+    /* margin-top: rem; */
+
+  }
+  
+  .nav__toggle,
+  .nav__close {
+    display: none;
+  }
+ 
+
+  .home__bird1,
+  .home__bird2 {
+    width: 100px;
+  }
+
+  .home__bird1 {
+    bottom: -7rem;
+    left: -7rem;
+  }
+
+  .home__bird2 {
+    top: 0;
+    right: -1rem;
+  }
+  
+
+  .home_images img {
+    /* bottom:2rem; */
+    /* height: 977px; */
+    /* margin-bottom: 3.4rem; */
+    /* width: initial; */
+    /* height: 100%; */
+    /* margin-top: -5rem; */
+
+    /* margin-top: 50rem; */
+  }
+.home__content{
+  margin-left: -2rem;
+  /* margin-bottom: 50rem; */
+}
+  ::-webkit-scrollbar {
+    width: .6rem;
+    border-radius: .5rem;
+    background-color: hsl(220, 24%, 15%);
+  }
+  ::-webkit-scrollbar-thumb {
+   
+    border-radius: .5rem;
+    background-color: hsl(220, 24%, 25%);
+  }
+ 
+  
+
+}
+
+/* For 2K resolutions (2048 x 1152) */
+@media screen and (min-width:2048px) {
+  .container{
+    max-width: 1300px;
+
+  }
+ 
+  .home__container{
+    height: 1200px;
+    padding-top:15rem;
+  }
+  .home__content{
+    margin-top: -10rem;
+    margin-left: -10rem;
+    
+  }
+  .home__subtitle{
+    font-size: 1.6rem;
+  }
+  .home__title{
+    font-size: 3.5rem;
+    width: 135%;
+   
+  }
+  
+  .hone__desciption{
+    font-size: 1.14rem;
+    width: 110%;
+   
+
+  }
+}
+/* @media  screen and (max-width:4218px) {
+  .home_images img{
+    margin-top: 5rem;
+  }
+} */
+
